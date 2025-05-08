@@ -19,7 +19,7 @@ This project provides a complete NLP-based pipeline to simulate, analyze, and vi
 | `create_noisy_dataset.py` | Generates a realistic + noisy dataset simulating network, quality, and sentiment |
 | `sentiment_analysis.py` | Analyzes textual feedback using BERT and adds a sentiment label |
 | `dnn_classifier.py` | Trains a PyTorch-based regression model to predict user satisfaction |
-| `realtime_predict.py` | Loads the model and makes satisfaction predictions on sample inputs |
+| `realtime_qos_simulation.py` | Loads the model and makes satisfaction predictions on sample inputs |
 | `visualize_results.py` | Creates and saves a confusion matrix image for model predictions |
 | `index.html` | Simple HTML dashboard displaying confusion matrix and suggestions |
 | `style.css` | CSS file for styling the dashboard UI |
