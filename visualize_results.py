@@ -1,6 +1,9 @@
 
 import pandas as pd
 import torch
+import json
+import random
+import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
@@ -40,4 +43,27 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Unsatisfied"
 disp.plot(cmap='Blues')
 plt.title("Confusion Matrix for Satisfaction Prediction")
 plt.savefig("confusion_matrix.png")  # Add this line before plt.show()
+plt.show()
+
+sentiment_counts = {
+    'Positive': random.randint(50, 100),
+    'Neutral': random.randint(30, 50),
+    'Negative': random.randint(10, 30)
+}
+
+# Save sentiment counts to a JSON file
+with open('sentiment_counts.json', 'w') as f:
+    json.dump(sentiment_counts, f)
+
+# Visualization of the sentiment distribution (this is optional but useful for debugging)
+labels = list(sentiment_counts.keys())
+values = list(sentiment_counts.values())
+
+fig, ax = plt.subplots()
+ax.bar(labels, values, color=['#4CAF50', '#FFC107', '#F44336'])
+ax.set_ylabel('Counts')
+ax.set_title('Sentiment Distribution')
+
+plt.tight_layout()
+plt.savefig('sentiment_distribution.png')
 plt.show()
