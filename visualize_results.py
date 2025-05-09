@@ -7,6 +7,9 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 from dnn_classifier import QoSModel
+from sklearn.metrics import accuracy_score
+
+
 
 # Load data and model
 df = pd.read_csv('noisy_stream_data_with_sentiment.csv')
@@ -33,6 +36,9 @@ with torch.no_grad():
 # Convert predictions to binary
 y_pred = (predictions >= 0.5).astype(int)
 y_true = df['satisfaction_binary'].values
+
+accuracy = accuracy_score(y_true, y_pred)
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
 
 # Confusion Matrix
 cm = confusion_matrix(y_true, y_pred)
