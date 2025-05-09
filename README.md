@@ -23,7 +23,7 @@ This project provides a complete NLP-based pipeline to simulate, analyze, and vi
 | `visualize_results.py` | Creates and saves a confusion matrix image for model predictions |
 | `index.html` | Simple HTML dashboard displaying confusion matrix and suggestions |
 | `style.css` | CSS file for styling the dashboard UI |
-| `app.js` | (Optional) JS to simulate UI updates (not used in static version) |
+| `app.js` | JS to simulate UI updates |
 | `confusion_matrix.png` | Saved visualization of prediction accuracy |
 
 ---
