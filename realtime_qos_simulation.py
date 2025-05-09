@@ -1,4 +1,3 @@
-# realtime_predict.py
 import torch
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder

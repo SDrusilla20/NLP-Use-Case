@@ -2,7 +2,6 @@
 import pandas as pd
 import torch
 import json
-import random
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
@@ -11,8 +10,6 @@ from dnn_classifier import QoSModel
 
 # Load data and model
 df = pd.read_csv('noisy_stream_data_with_sentiment.csv')
-
-# Binarize satisfaction score for classification (>=0.5 = satisfied)
 df['satisfaction_binary'] = df['satisfaction'].apply(lambda x: 1 if x >= 0.5 else 0)
 
 le_network = LabelEncoder().fit(df['network'])
@@ -42,20 +39,16 @@ cm = confusion_matrix(y_true, y_pred)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Unsatisfied", "Satisfied"])
 disp.plot(cmap='Blues')
 plt.title("Confusion Matrix for Satisfaction Prediction")
-plt.savefig("confusion_matrix.png")  # Add this line before plt.show()
+plt.savefig("confusion_matrix.png")
 plt.show()
 
-sentiment_counts = {
-    'Positive': random.randint(50, 100),
-    'Neutral': random.randint(30, 50),
-    'Negative': random.randint(10, 30)
-}
+sentiment_counts = df['sentiment'].value_counts().to_dict()
 
 # Save sentiment counts to a JSON file
 with open('sentiment_counts.json', 'w') as f:
     json.dump(sentiment_counts, f)
 
-# Visualization of the sentiment distribution (this is optional but useful for debugging)
+# Visualization of the sentiment distribution 
 labels = list(sentiment_counts.keys())
 values = list(sentiment_counts.values())
 

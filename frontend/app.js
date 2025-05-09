@@ -1,19 +1,16 @@
-// Initialize sentiment counts (these will be updated dynamically)
 let sentimentCounts = {
     Positive: 0,
     Neutral: 0,
     Negative: 0
 };
 
-// Function to update the sentiment bar chart
 function createSentimentChart() {
     const ctx = document.getElementById('sentimentChart').getContext('2d');
 
-    // Create or update the sentiment chart
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Positive', 'Neutral', 'Negative'], // Sentiment types
+            labels: ['Positive', 'Neutral', 'Negative'], 
             datasets: [{
                 label: 'Sentiment Distribution',
                 data: [sentimentCounts.Positive, sentimentCounts.Neutral, sentimentCounts.Negative],
@@ -35,7 +32,7 @@ function createSentimentChart() {
 
 function updateSuggestions() {
     // Generate a random satisfaction score
-    const predictedSatisfaction = Math.random().toFixed(2); // Value between 0 and 1
+    const predictedSatisfaction = Math.random().toFixed(2); 
     let sentimentLabel = '';
     let suggestedAction = '';
 
@@ -61,5 +58,4 @@ function updateSuggestions() {
 
 }
 
-// Initial chart render (before simulating updates)
 createSentimentChart();
