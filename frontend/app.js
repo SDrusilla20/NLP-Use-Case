@@ -6,7 +6,7 @@ let sentimentCounts = {
 };
 
 // Function to update the sentiment bar chart
-function updateSentimentChart() {
+function createSentimentChart() {
     const ctx = document.getElementById('sentimentChart').getContext('2d');
 
     // Create or update the sentiment chart
@@ -33,38 +33,33 @@ function updateSentimentChart() {
     });
 }
 
-// Function to simulate updating QoS suggestions and sentiment data
 function updateSuggestions() {
-    // Example values for QoS suggestions
-    const predictedSatisfaction = Math.random().toFixed(2); // Random value between 0 and 1
+    // Generate a random satisfaction score
+    const predictedSatisfaction = Math.random().toFixed(2); // Value between 0 and 1
+    let sentimentLabel = '';
     let suggestedAction = '';
 
-    // Determine suggested action based on satisfaction value
-    if (predictedSatisfaction < 0.3) {
+    // Derive sentiment and action from satisfaction score
+    if (predictedSatisfaction < 0.4) {
+        sentimentLabel = 'Negative';
         suggestedAction = 'Adjust bitrate or resolution';
-    } else if (predictedSatisfaction < 0.6) {
+        sentimentCounts.Negative++;
+    } else if (predictedSatisfaction < 0.8) {
+        sentimentLabel = 'Neutral';
         suggestedAction = 'Check network stability';
-    } else {
-        suggestedAction = 'All good! Continue streaming';
-    }
-
-    // Update the HTML with the new values
-    document.getElementById('predicted-satisfaction').innerText = predictedSatisfaction;
-    document.getElementById('suggested-action').innerText = suggestedAction;
-
-    // Simulate sentiment data (for real-time updates)
-    const randomSentiment = Math.random();
-    if (randomSentiment < 0.3) {
-        sentimentCounts.Positive++;
-    } else if (randomSentiment < 0.7) {
         sentimentCounts.Neutral++;
     } else {
-        sentimentCounts.Negative++;
+        sentimentLabel = 'Positive';
+        suggestedAction = 'All good! Continue streaming';
+        sentimentCounts.Positive++;
     }
 
-    // Update the sentiment chart after data change
-    updateSentimentChart();
+    // Update the dashboard
+    document.getElementById('predicted-satisfaction').innerText = predictedSatisfaction;
+    document.getElementById('suggested-action').innerText = suggestedAction;
+    document.getElementById('sentiment').innerText = sentimentLabel;
+
 }
 
 // Initial chart render (before simulating updates)
-updateSentimentChart();
+createSentimentChart();

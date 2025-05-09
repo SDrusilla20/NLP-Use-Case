@@ -10,6 +10,10 @@
         <h1>Live Streaming QoS Dashboard</h1>
 
         <section class="matrix-section">
+            <section class="sentiment-chart-section">
+                <h2>Sentiment Distribution</h2>
+                <img src="sentiment_distribution.png" alt="Sentiment Distribution">
+            </section>
             <h2>Confusion Matrix</h2>
             <img src="confusion_matrix.png" alt="Confusion Matrix">
         </section>
@@ -17,19 +21,12 @@
         <section class="realtime-section">
             <h2>Real-Time QoS Suggestions</h2>
             <div id="suggestions">
-                <p><strong>Network:</strong> <span id="network">4G</span></p>
-                <p><strong>Stream Quality:</strong> <span id="stream-quality">1080p</span></p>
                 <p><strong>Sentiment:</strong> <span id="sentiment">Positive</span></p>
                 <p><strong>Predicted Satisfaction:</strong> <span id="predicted-satisfaction">0.28</span></p>
                 <p><strong>Suggested Action:</strong> <span id="suggested-action">Adjust bitrate or resolution</span></p>
             </div>
-            <section class="sentiment-chart-section">
-                <h2>Sentiment Distribution</h2>
-                <img src="sentiment_distribution.png" alt="Sentiment Distribution">
-            </section>
         </section>
 
-        <!-- You can add a button to simulate real-time updates (optional) -->
         <button onclick="updateSuggestions()">Simulate New Data</button>
     </div>
 
