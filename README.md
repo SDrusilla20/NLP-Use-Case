@@ -1,18 +1,17 @@
-# RA2212704010013
 # Live Streaming QoS Dashboard
 
 This project provides a complete NLP-based pipeline to simulate, analyze, and visualize **Quality of Service (QoS)** for live video game streaming platforms. It uses a **data-driven approach** leveraging big data simulation, **BERT-based sentiment analysis**, and **PyTorch-based deep neural networks** to classify user satisfaction levels.
 
-## 🧠 Project Highlights
+## Project Highlights
 
-- ✅ Synthetic noisy data generation simulating live stream conditions
-- ✅ BERT-based sentiment analysis using HuggingFace Transformers
-- ✅ Deep Neural Network (DNN) regression model built with PyTorch
-- ✅ Dashboard frontend showing confusion matrix and satisfaction suggestions
+- Synthetic noisy data generation simulating live stream conditions
+- BERT-based sentiment analysis using HuggingFace Transformers
+- Deep Neural Network (DNN) regression model built with PyTorch
+- Dashboard frontend showing confusion matrix and satisfaction suggestions
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 | File | Description |
 |------|-------------|
@@ -28,7 +27,7 @@ This project provides a complete NLP-based pipeline to simulate, analyze, and vi
 
 ---
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the repository
 
@@ -66,7 +65,7 @@ python visualize_results.py
 
 This will generate `confusion_matrix.png` used in the dashboard.
 
-## 🌐 Frontend Dashboard
+## Frontend Dashboard
 
 A simple HTML/CSS dashboard to display:
 - The confusion matrix image
@@ -81,14 +80,14 @@ A simple HTML/CSS dashboard to display:
 2. Open `index.html` in your web browser.
 3. No live backend or JavaScript updates are required—this is a static display dashboard.
 
-## 📊 Sample Output
+## Sample Output
 
 ```
 Predicted satisfaction: 0.28
 → Suggested action: Adjust bitrate or resolution
 ```
 
-## 💡 Future Improvements
+## Future Improvements
 
 - Real-time feedback integration via Flask or FastAPI
 - Interactive dashboard with live updates
